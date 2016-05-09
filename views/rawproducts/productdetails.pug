@@ -1,0 +1,43 @@
+doctype html
+html(lang="en")
+    head
+        title Product Details
+    body
+        center
+            h1 Product Details
+            form(action="", method="post")
+                input(type="hidden", name="id" value=product._id)
+                input(type="hidden", name="action", value="commitchange")
+                label Name:&nbsp
+                input(name="name", placeholder=product.name, value=product.name)
+                br
+                br
+                label Unit of Measurement:&nbsp
+                select(name="unit", value=product.unit)
+                    option(value="gram") Gram
+                    option(value="container") Container
+                    option(value="unit") Unit
+                    option(value="Liter") Liter
+                br
+                br
+                label Amount:&nbsp
+                input(name="amount", placeholder=product.amount, value=product.amount)
+                br
+                br
+                select(name="kind", value=product.kind)
+                    option(value="fresh") Fresh
+                    option(value="meat") Meat
+                    option(value="dairy") Dairy
+                    option(value="frozen") Frozen
+                    option(value="carbohydrate") Carbohydrate
+                    option(value="basic") Basic
+                    option(value="other") Other
+                br
+                br
+                textarea(name="description", cols="40", placeholder=product.description)=product.description
+                br
+                br
+                input(type="submit", value="Change")
+            br
+            form(action="/editrawproduct", method="get")
+                input(type="submit", value="Back")

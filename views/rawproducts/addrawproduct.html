@@ -1,0 +1,55 @@
+<head>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/freelancer.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <center>
+        <div class="col-lg-12 text-center">
+            <h2>Add Raw Product</h2>
+            <hr class="star-primary">
+        </div>
+        <br>
+        <form action="addrawproduct" method="post">
+            <label> Name:
+                <input type="text" name="name">
+            </label>
+            <br><br>
+            <label> Unit of Measurement:
+                <select name="unit">
+                    <option value="gram">Gram</option>
+                    <option value="container">Container</option>
+                    <option value="unit">Unit</option>
+                    <option value="liter">Liter</option>
+                </select>
+            </label>
+            <br><br>
+            <label> Amount:
+                <input type="text" name="amount">
+            </label>
+            <br><br>
+            <label> Kind:
+                <select name="kind">
+                    <option value="fresh">Fresh</option>
+                    <option value="meat">Meat</option>
+                    <option value="dairy">Dairy</option>
+                    <option value="frozen">Frozen</option>
+                    <option value="carbohydrate">Carbohydrate</option>
+                    <option value="basic">Basic</option>
+                    <option value="other">Other</option>
+                </select>
+            </label>
+            <br><br>
+            <textarea name="description" cols="40" placeholder="Description"></textarea>
+            <br><br>
+            <input type="submit" value="Add">
+        </form>
+        <form action="/" method="get">
+            <input type="submit" value="Back">
+        </form>
+    </center>
+</body>

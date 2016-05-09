@@ -1,0 +1,12 @@
+doctype html
+html(lang="en")
+    head
+        title Success
+    body
+        h1 Raw Product Added Successfully
+        h3 Details:
+            ul
+                each val, index in model
+                    li=index + ': ' + val
+        form(action="/", method="get")
+            input(type="submit", value="Back")
