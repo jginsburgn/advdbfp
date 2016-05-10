@@ -39,13 +39,63 @@ html(lang="en")
                 br
                 label Kind:&nbsp
                 select(name="kind", value=product.kind)
-                    option(value="fresh") Fresh
-                    option(value="meat") Meat
-                    option(value="dairy") Dairy
-                    option(value="frozen") Frozen
-                    option(value="carbohydrate") Carbohydrate
-                    option(value="basic") Basic
-                    option(value="other") Other
+                  case product.kind
+                    when "fresh"
+                      option(value="fresh" selected) Fresh
+                      option(value="meat") Meat
+                      option(value="dairy") Dairy
+                      option(value="frozen") Frozen
+                      option(value="carbohydrate") Carbohydrate
+                      option(value="basic") Basic
+                      option(value="other") Other
+                    when "meat"
+                      option(value="fresh") Fresh
+                      option(value="meat" selected) Meat
+                      option(value="dairy") Dairy
+                      option(value="frozen") Frozen
+                      option(value="carbohydrate") Carbohydrate
+                      option(value="basic") Basic
+                      option(value="other") Other
+                    when "dairy"
+                      option(value="fresh") Fresh
+                      option(value="meat") Meat
+                      option(value="dairy" selected) Dairy
+                      option(value="frozen") Frozen
+                      option(value="carbohydrate") Carbohydrate
+                      option(value="basic") Basic
+                      option(value="other") Other
+                    when "frozen"
+                      option(value="fresh") Fresh
+                      option(value="meat") Meat
+                      option(value="dairy") Dairy
+                      option(value="frozen" selected) Frozen
+                      option(value="carbohydrate") Carbohydrate
+                      option(value="basic") Basic
+                      option(value="other") Other
+                    when "carbohydrate"
+                      option(value="fresh") Fresh
+                      option(value="meat") Meat
+                      option(value="dairy") Dairy
+                      option(value="frozen") Frozen
+                      option(value="carbohydrate" selected) Carbohydrate
+                      option(value="basic") Basic
+                      option(value="other") Other
+                    when "basic"
+                      option(value="fresh") Fresh
+                      option(value="meat") Meat
+                      option(value="dairy") Dairy
+                      option(value="frozen") Frozen
+                      option(value="carbohydrate") Carbohydrate
+                      option(value="basic" selected) Basic
+                      option(value="other") Other
+                    when "other"
+                      option(value="fresh") Fresh
+                      option(value="meat") Meat
+                      option(value="dairy") Dairy
+                      option(value="frozen") Frozen
+                      option(value="carbohydrate") Carbohydrate
+                      option(value="basic") Basic
+                      option(value="other" selected) Other
                 br
                 br
                 label Cost:&nbsp
