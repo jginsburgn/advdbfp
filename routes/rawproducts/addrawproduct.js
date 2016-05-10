@@ -12,24 +12,21 @@ router.post('/',
 function(req, res){
     var name = req.body.name;
     var unit = req.body.unit;
-    var amount = req.body.amount;
     var kind = req.body.kind;
-    var description = req.body.description;
+    var cost = req.body.cost;
     db.insertN({
         name: name,
         unit: unit,
-        amount: amount,
         kind: kind,
-        description: description
+        cost: cost
     },
     "RawProduct",
     function (err, node) {
         if (err) {
             return console.log(err);
         }
-        console.log(node);
     });
-    res.render('addrawproductdone',  {model: {Name: name, Unit: unit, Amount: amount, Kind: kind, Description: description}});
+    res.render('addrawproductdone',  {model: {Name: name, Unit: unit, Kind: kind, Cost:cost}});
 });
 
 module.exports = router;

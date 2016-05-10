@@ -10,29 +10,30 @@ html(lang="en")
         title Edit
     body
         center
-            h1 Showing Raw Products
-        ol
-            each val, index in products
-                li=val.name
-                    form(action="", method="post")
+            - var tit = "Showing Batches of Raw Product: " + titlename
+            h1=tit
+        ul
+            - var i = 0
+            each val, index in brps
+                - i++
+                - var formattedcount = "Batch number: " + i
+                li=formattedcount
+                    form(method="post")
                         input(type="hidden",name="action",value="delete")
                         input(type="hidden",name="id",value=val._id)
                         input(type="submit",value="Delete")
-                    form(action="", method="post")
+                    form(method="post")
                         input(type="hidden",name="action",value="edit")
                         input(type="hidden",name="id",value=val._id)
                         input(type="submit",value="Edit")
-                    form(action="/batchrawproduct", method="post")
-                        input(type="hidden", name="pname", value=val.name)
-                        input(type="hidden",name="action",value="show")
-                        input(type="hidden",name="id",value=val._id)
-                        input(type="submit",value="Batches")
                 ul
-                    each sval, sind in val
-                        li= sind + ': ' + sval
+                    - var formatamount = "Batch amount " + val.amount
+                    - var formatdate =  "Expires on: " + val.expD + "/" + val.expM + "/" + val.expY
+                    li=formatamount
+                    li=formatdate
         center
-            form(action="/", method="get")
+            form(action="/editrawproduct", method="get")
                 input(type="submit", value="Back")
             br
-            form(action="/addrawproduct", method="get")
-                input(type="submit", value="Add Raw Product")
+            form(action="#", method="get")
+                input(type="submit", value="Add Batch for Raw Product")

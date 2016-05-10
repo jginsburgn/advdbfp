@@ -14,16 +14,30 @@ html(lang="en")
                 br
                 label Unit of Measurement:&nbsp
                 select(name="unit", value=product.unit)
-                    option(value="gram") Gram
-                    option(value="container") Container
-                    option(value="unit") Unit
-                    option(value="Liter") Liter
+                    case product.unit
+                        when "gram"
+                            option(value="gram" selected) Gram
+                            option(value="container") Container
+                            option(value="unit") Unit
+                            option(value="liter") Liter
+                        when "container"
+                            option(value="gram") Gram
+                            option(value="container" selected) Container
+                            option(value="unit") Unit
+                            option(value="liter") Liter
+                        when "unit"
+                            option(value="gram") Gram
+                            option(value="container") Container
+                            option(value="unit" selected) Unit
+                            option(value="liter") Liter
+                        when "liter"
+                            option(value="gram") Gram
+                            option(value="container") Container
+                            option(value="unit") Unit
+                            option(value="liter" selected) Liter
                 br
                 br
-                label Amount:&nbsp
-                input(name="amount", placeholder=product.amount, value=product.amount)
-                br
-                br
+                label Kind:&nbsp
                 select(name="kind", value=product.kind)
                     option(value="fresh") Fresh
                     option(value="meat") Meat
@@ -34,7 +48,8 @@ html(lang="en")
                     option(value="other") Other
                 br
                 br
-                textarea(name="description", cols="40", placeholder=product.description)=product.description
+                label Cost:&nbsp
+                input(name="cost", placeholder.product.cost, value=product.cost)
                 br
                 br
                 input(type="submit", value="Change")

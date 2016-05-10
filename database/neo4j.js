@@ -26,6 +26,9 @@ module.exports = {
     },
     getNID: function (id, answer) {
         db.readNode(id, answer);
+    },
+    getBRPs: function(pid, answer) {
+        db.cypherQuery("match (rp:RawProduct)-[r:BatchRPR]->(brp) where id(rp)=" + pid + " return brp;", answer);
     }
 };
 

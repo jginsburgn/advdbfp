@@ -7,7 +7,6 @@ router.get('/',
 function(req, res){
     var queryr = db.getN("RawProduct", function(err, result){
         if(err) throw err;
-        console.log(result.data);
         res.render('editrawproduct', { products: result.data });
     });
 });
@@ -19,10 +18,9 @@ function(req, res){
         case "commitchange":
             var name = req.body.name;
             var unit = req.body.unit;
-            var amount = req.body.amount;
             var kind = req.body.kind;
-            var description = req.body.description;
-            var newNode = {name: name, unit: unit, amount: amount, kind: kind, description: description};
+            var cost = req.body.cost;
+            var newNode = {name: name, unit: unit, kind: kind, cost: cost};
             db.editN(
                 req.body.id,
                 newNode,
