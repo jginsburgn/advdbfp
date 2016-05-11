@@ -21,19 +21,33 @@ html(lang="en")
                     form(method="post")
                         input(type="hidden",name="action",value="delete")
                         input(type="hidden",name="id",value=val._id)
+                        input(type="hidden", name="productid", value=productid)
+                        input(type="hidden", name="unit", value=unit)
+                        input(type="hidden", name="productname", value=titlename)
                         input(type="submit",value="Delete")
                     form(method="post")
                         input(type="hidden",name="action",value="edit")
                         input(type="hidden",name="id",value=val._id)
+                        input(type="hidden", name="productid", value=productid)
+                        input(type="hidden",name="amount",value=val.amount)
+                        input(type="hidden",name="expd",value=val.expD)
+                        input(type="hidden",name="expm",value=val.expM)
+                        input(type="hidden",name="expy",value=val.expY)
+                        input(type="hidden", name="unit", value=unit)
+                        input(type="hidden", name="productname", value=titlename)
                         input(type="submit",value="Edit")
                 ul
-                    - var formatamount = "Batch amount " + val.amount
+                    - var formatamount = "Batch amount: " + val.amount + " " + unit + "(s)"
                     - var formatdate =  "Expires on: " + val.expD + "/" + val.expM + "/" + val.expY
                     li=formatamount
                     li=formatdate
         center
+            form(method="post")
+                input(type="hidden",name="action",value="add")
+                input(type="hidden", name="productname", value=titlename)
+                input(type="hidden", name="productid", value=productid)
+                input(type="hidden", name="unit", value=unit)
+                input(type="submit", value="Add Batch for Raw Product")
+            br
             form(action="/editrawproduct", method="get")
                 input(type="submit", value="Back")
-            br
-            form(action="#", method="get")
-                input(type="submit", value="Add Batch for Raw Product")

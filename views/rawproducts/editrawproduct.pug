@@ -23,9 +23,10 @@ html(lang="en")
                         input(type="hidden",name="id",value=val._id)
                         input(type="submit",value="Edit")
                     form(action="/batchrawproduct", method="post")
-                        input(type="hidden", name="pname", value=val.name)
+                        input(type="hidden",name="pname", value=val.name)
                         input(type="hidden",name="action",value="show")
                         input(type="hidden",name="id",value=val._id)
+                        input(type="hidden",name="unit",value=val.unit)
                         input(type="submit",value="Batches")
                 ul
                     each sval, sind in val
