@@ -1,0 +1,19 @@
+body{
+  font-family: 'Tangerine', serif;
+  background-image: url("http://s32.postimg.org/hgkhw4gyt/res1.jpg");
+  background-position: 50% 50%;
+  background-repeat: repeat;
+  font-size: 60px;
+  color: #black;
+}
+
+
+ul{
+  font-size: 40px;
+  color: #black;
+}
+
+h1{
+  font-size: 80px;
+  color: #black;
+}

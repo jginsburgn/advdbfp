@@ -7,6 +7,8 @@ var brphandler = require('./routes/batchrawproducts/batchrawproducthandler');
 var bodyParser = require('body-parser');
 var app = express();
 
+app.use(express.static('public'));
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'pug');
 app.set('views',
