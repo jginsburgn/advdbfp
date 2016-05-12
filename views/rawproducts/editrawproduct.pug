@@ -14,27 +14,29 @@ html(lang="en")
             h1 Showing Raw Products
         ol
             each val, index in products
-                    form(action="", method="post",class="lineaBotones")
-                      input(type="hidden",name="action",value="delete")
-                      input(type="hidden",name="id",value=val._id)
-                      input(type="submit",value="Delete")
-                    form(action="", method="post", class="lineaBotones")
-                      input(type="hidden",name="action",value="edit")
-                      input(type="hidden",name="id",value=val._id)
-                      input(type="submit",value="Edit")
-                    form(action="/batchrawproduct", method="post")
-                      input(type="hidden",name="pname", value=val.name)
-                      input(type="hidden",name="action",value="show")
-                      input(type="hidden",name="id",value=val._id)
-                      input(type="hidden",name="unit",value=val.unit)
-                      input(type="submit",value="Batches")
-            li=val.name
+              li=val.name
+                br
+                form(action="", method="post",class="lineaBotones")
+                  input(type="hidden",name="action",value="delete")
+                  input(type="hidden",name="id",value=val._id)
+                  input(type="submit",value="Delete")
+                form(action="", method="post", class="lineaBotones")
+                  input(type="hidden",name="action",value="edit")
+                  input(type="hidden",name="id",value=val._id)
+                  input(type="submit",value="Edit")
+                form(action="/batchrawproduct", method="post", class="lineaBotones")
+                  input(type="hidden",name="pname", value=val.name)
+                  input(type="hidden",name="action",value="show")
+                  input(type="hidden",name="id",value=val._id)
+                  input(type="hidden",name="unit",value=val.unit)
+                  input(type="submit",value="Batches")
+                p
                 ul
-                    each sval, sind in val
-                        li= sind + ': ' + sval
+                  each sval, sind in val
+                    li= sind + ': ' + sval
+                  br
         center
             form(action="/", method="get")
                 input(type="submit", value="Back")
-            br
             form(action="/addrawproduct", method="get")
                 input(type="submit", value="Add Raw Product")

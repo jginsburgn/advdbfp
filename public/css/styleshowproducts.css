@@ -7,8 +7,9 @@ body{
   color: #black;
 }
 
-
 ul{
+  margin-top: 0px;
+  padding-top: 0px;
   font-size: 40px;
   color: #black;
 }
@@ -21,4 +22,10 @@ h1{
 .lineaBotones{
   display: flex;
   float: left;
+  padding-bottom: 10px;
+}
+
+br {
+   margin: 0px;
+   line-height: 0px;
 }
