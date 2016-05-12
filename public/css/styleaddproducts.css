@@ -11,3 +11,9 @@ body{
 h2{
   font-size: 60px;
 }
+
+
+.lineaBotones{
+  display: flex;
+  float: left;
+}
