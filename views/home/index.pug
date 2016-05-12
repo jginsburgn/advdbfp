@@ -10,3 +10,6 @@ html(lang="en")
         br
         form(action="/editrawproduct", method="get")
             input(type="submit", value="Raw Products")
+        form(action="/recipes", method="post")
+            input(type="hidden", name="action", value="show")
+            input(type="submit", value="Recipes")

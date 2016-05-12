@@ -12,6 +12,7 @@
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
     "node-neo4j": "^2.0.3",
-    "pug": "^2.0.0-alpha6"
+    "pug": "^2.0.0-alpha6",
+    "sleep": "^3.0.1"
   }
 }

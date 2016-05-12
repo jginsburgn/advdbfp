@@ -35,6 +35,18 @@ module.exports = {
     },
     addBRP: function(pid, amount, expd, expm, expy, answer){
         db.cypherQuery("match (rp) where id(rp)=" + pid + ' create (rp)-[r:BatchRPR]->(brp:BatchRawProduct {amount:"' + amount + '", expD:"' + expd + '", expM:"' + expm + '", expY:"' + expy + '"}) return brp;', answer);
+    },
+    getIngredients: function(recipeid, answer) {
+        var query = "match (recipe:Recipe)-[ing:Ingredient]->(rp:RawProduct) where id(recipe)=" + recipeid + " return ing, rp;";
+        db.cypherQuery(query, answer);
+    },
+    deleteRel: function(aid, bid, answer) {
+        var query = "match (a)-[r]-(b) where id(a)=" + aid + " and id(b)=" + bid + " delete r;";
+        db.cypherQuery(query, answer);
+    },
+    createRel: function(fromid, toid, kind, atts, answer) {
+        var query = "match (a), (b) where id(a)=" + fromid + " and id(b)=" + toid + " create (a)-[r:" + kind + " " + atts + "]->(b);";
+        db.cypherQuery(query, answer);
     }
 };
 
