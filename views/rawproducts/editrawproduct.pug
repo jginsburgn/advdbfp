@@ -15,9 +15,6 @@ html(lang="en")
         ol
             each val, index in products
                 li=val.name
-                ul
-                    each sval, sind in val
-                        li= sind + ': ' + sval
                 form(action="", method="post")
                   input(type="hidden",name="action",value="delete")
                   input(type="hidden",name="id",value=val._id)
@@ -32,6 +29,9 @@ html(lang="en")
                   input(type="hidden",name="id",value=val._id)
                   input(type="hidden",name="unit",value=val.unit)
                   input(type="submit",value="Batches")
+                ul
+                    each sval, sind in val
+                        li= sind + ': ' + sval
         center
             form(action="/", method="get")
                 input(type="submit", value="Back")
