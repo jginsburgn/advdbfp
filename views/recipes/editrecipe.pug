@@ -55,4 +55,10 @@ html(lang="en")
                         option(value=rp._id)=rp.name
                 br
                 input(type="submit",value="Add")
+            form(method="post")
+                input(type="hidden", name="action", value=action)
+                input(type="hidden", name="subaction", value="back")
+                input(type="hidden", name="recipeid", value=recipeid)
+                input(type="hidden", name="currentings", value=currentings)
+                input(type="submit", value="Back")
                 
