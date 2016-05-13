@@ -1,4 +1,3 @@
-var sleep = require('sleep');
 var path = require('path');
 var express = require('express');
 var router = express.Router();
@@ -25,10 +24,28 @@ function runPost(action, req, res){
         case "edit":
             editRecipe(req.body.recipeid, req, res);
             break;
+        case "delete":
+            db.removeN(req.body.recipeid, function(error, response) {
+                showRecipes(req, res);
+            })
+            break;
+        case "create":
+            createRecipe(req, res);
+            break;
         default:
             console.log("Unrecognized action for recipes handler post: " + action);
             res.redirect(res.get('referer'));
     }
+}
+
+function createRecipe(req, res) {
+    db.insertN({
+        name: ""
+    },
+    "Recipe",
+    function (err, node) {
+        editRecipe(node._id, req, res);
+    });
 }
 
 function editRecipe(recipeid, req, res) {
@@ -47,10 +64,17 @@ function editRecipe(recipeid, req, res) {
             break;
         case "adding":
             var ingid = req.body.oping;
-            var amount = req.body.amount;
-            db.createRel(recipeid, ingid, "Ingredient", "{amount:" + amount + "}", function (error, response) {
-                if (!error) reRender(recipeid, req, res);
-            });
+            if (ingid) {
+                var ingid = req.body.oping;
+                var amount = req.body.amount;
+                db.createRel(recipeid, ingid, "Ingredient", "{amount:" + amount + "}", function (error, response) {
+                    if (!error) reRender(recipeid, req, res);
+                });
+            }
+            else reRender(recipeid, req, res);
+            break;
+        case "back":
+            showRecipes(req, res);
             break;
         default:
             reRender(recipeid, req, res);

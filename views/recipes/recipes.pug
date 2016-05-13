@@ -26,5 +26,8 @@ html(lang="en")
                     input(type="hidden", name="recipeid", value=val._id)
                     input(type="submit", value="Delete")
         center
+            form(method="post")
+                input(type="hidden", name="action", value="create")
+                input(type="submit", value="Create New")
             form(method="get", action="/")
                 input(type="submit", value="Back")
